@@ -1,19 +1,20 @@
-# Monte-carlo-simulation-c
+# Monte carlo simulation (C)
 This is a small Monte Carlo simulation of a market maker and is written in the C programming language. 
 The simulation estimates how much money a market maker makes on average for different bid-ask spreads, and shows why the most profitable spread exists between the extremes.
 # Structure of the model
-The program has an option to go with a default simulation which runs on a set of random numbers. Another option is to enter the number of sessions and rounds we would like to simulate. The input for the custom run expects a positive integer only for the values of sessions and rounds, otherwise, the program may behave enexpectedly.
-# Execution of the model
-In the default case, 2,000 sessions were run where each session had 1,000 rounds, and each round consisted of:
+The program can run a default simulation, consisting of 2,000 sessions of 1,000 rounds each, with fixed random seeds, so the result can be reproduced. Otherwise, it can accept a positive integer input for the number of sessions and number of rounds for each session. Note that any input which is not a positive integer can cause the program to behave unexpectedly.
 
-1) A market maker quoting a price to buy (bid) an asset and a price to sell (ask) the same asset for every 'spread' ticks and above the value it last saw. This distance is called the half-spread
+# Execution of the model
+In the default case, the program runs 2,000 sessions with 1,000 rounds each, where 1 tick is the smallest price increment and each round consists of:
+
+1) The market maker quotes a price to buy (bid) an asset and a price to sell (ask) the same asset for every 'spread' ticks below and above the value it last saw. This distance is called the half-spread
 2) The true value of the asset fluctuates by a random integer from -3 to +3. The market maker does not see the change yet.
-3) A "regular trader" arrives with a 50% probability. They can buy or sell at random, but each of them have a random tolerance of 0 to 6 ticks, and they can only trade if the market maker's half-spread is no larger than their tolerance.
-4) An "informed trader" also arrives with a 10% probability. They know the true value of the asset and only trade when the value is above the market marker's ask or below the bid  , causing the market maker to lose some money.
+3) A "regular trader" arrives with a 50% probability. They can buy or sell at random, but has a random tolerance of 0 to 6 ticks, and they can only trade if the market maker's half-spread is no larger than their tolerance.
+4) An "informed trader" also arrives with a 10% probability. They know the true value of the asset and only trade when the value is above the market marker's ask or below the bid, causing the market maker to lose some money.
 5) The market maker learns the true value and re-centres the quote accordingly.
 
-At the end of each session, profit is the cash plus the market maker's remaining inventory value (the value of the market maker’s remaining inventory).
-For each half-spread from 1 to 7 ticks, where 1 tick is the smallest price increment, the simulation will run 2,000 sessions and average the profit. Every half-spread is tested on the same 2,000 random scenarios (defined by 'srand (s +1)', where s is the scenario number), so the comparison is fair.
+At the end of each session, profit is the cash plus the market maker's remaining value of the market maker’s remaining inventory.
+For each half-spread from 1 to 7 ticks, the simulation will run 2,000 sessions and average the profit. Every half-spread is tested on the same 2,000 random scenarios (defined by 'srand (s +1)', where s is the session number), so the comparison is fair.
 # Use
 Finding out which half-spread makes the market maker the highest amount of average profit.
 # Result
