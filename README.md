@@ -11,6 +11,7 @@ The market maker learns the true value and re-centres the quote accordingly.
 At the end of each session, profit is the cash plus the market maker's remaining inventory value at the final true price.
 For each half-spread (defined as 'spr') from 1 to 7 ticks, where 1 tick is the smallest price increment, the simulation will run 2,000 sessions and average the profit. Every half-spread is tested on the same 2,000 random scenarios (defined by 'srand(s +1)', where s is the scenario number).
 # Example
+<img width="434" height="378" alt="image" src="https://github.com/user-attachments/assets/736aaabe-dbc4-4c11-bbb7-1ccb50d3d32b" />
 
 # Compiling
 gg -Wall -Wextra monte_carlo.c -o monte
