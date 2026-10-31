@@ -16,13 +16,17 @@ In the default case, the program runs 2,000 sessions with 1,000 rounds each, whe
 At the end of each session, profit is the cash plus the value of the market maker's remaining inventory at the final true price.
 For each half-spread from 1 to 7 ticks, the simulation runs for the desired number of sessions and averages the profit. Every half-spread is tested on the same random scenarios, defined by `srand(s + 1)`, where `s` is the session number, so the comparison is fair.
 # Purpose
-Finding out which half-spread makes the market maker the highest amount of average profit.
+To find which half-spread makes the market maker the highest average profit.
 # Result
-The image below shows the result of the default case for my code in Visual Studio Code.
+The image below shows the result of the default case for my compiler.
 <img width="392" height="268" alt="image" src="https://github.com/user-attachments/assets/49e009b1-2788-4674-8884-7d5c07f81a2e" />
 
-The average profit is highest at half-spreads of 3 and 4 ticks. If we observe below that, the market maker loses money to informed traders. And if we observe above that, fewer regular traders accept the spread, and at 7 ticks none accept the spread, so the average profit is 0.
+Average profit is highest at half-spreads of 3 and 4 ticks. At smaller spreads (1 and 2 ticks), informed traders can trade against the market maker’s out-of-date quotes, which reduces its profit. At larger spreads, fewer regular traders accept the spread, and at 7 ticks none do, so the average profit is 0.
 # Compiling
+```
 gcc -Wall -Wextra monte_carlo.c -o monte
+```
 # Running
+```
 ./monte
+```
