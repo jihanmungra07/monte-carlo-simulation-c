@@ -21,9 +21,9 @@ int main() {
         printf("Enter the number of sessions: ");
         scanf("%d", &sessions);
     }
-  
+    
     printf("half_spread avg_profit\n");
-    for (int tick = 1; tick <= 7; tick++) {
+    for (int spread = 1; spread <= 7; spread++) {
         double total = 0;
         for (int s = 0; s < sessions; s++) {
             srand(s + 1);
@@ -40,31 +40,30 @@ int main() {
                 bool informed_arrives = rand() % 10 < 1;
                 value += jump;
 
-                if (normal_arrives && tolerance >= tick) {
+                if (normal_arrives && tolerance >= spread) {
                     if (normal_buys) {
-                        cash += quote + tick;
+                        cash += quote + spread;
                         inventory--;
                     } else {
-                        cash -= quote - tick;
+                        cash -= quote - spread;
                         inventory++;
                     }
                 }
                 if (informed_arrives) {
-                    if (value > quote + tick) {
-                        cash += quote + tick;
+                    if (value > quote + spread) {
+                        cash += quote + spread;
                         inventory--;
-                    } else if (value < quote - tick) {
-                        cash -= quote - tick;
+                    } else if (value < quote - spread) {
+                        cash -= quote - spread;
                         inventory++;
                     }
                 }
             quote = value;
         }
          total += cash + inventory * value;
-     }
-    
-    printf("%d %0.1f\n", tick, total / sessions);
-   }
+     } 
+    printf("%d %0.1f\n", spread, total / sessions);
+    }
 
 return 0;
 }
