@@ -1,9 +1,9 @@
 # Monte-carlo-simulation-c
 This is a small Monte Carlo simulation of a market maker and is written in the C programming language. 
 The simulation estimates how much money a market maker makes on average for different bid-ask spreads, and shows why the most profitable spread exists between the extremes.
-# Structure-of-the-model
+# Structure of the model
 The program has an option to go with a default simulation which runs on a set of random numbers. Another option is to enter the number of sessions and rounds we would like to simulate. The input for the custom run expects a positive integer only for the values of sessions and rounds, otherwise, the program may behave enexpectedly.
-# Execution-of-the-model
+# Execution of the model
 In the default case, 2,000 sessions were run where each session had 1,000 rounds, and each round consisted of:
 
 1) A market maker quoting a price to buy (bid) an asset and a price to sell (ask) the same asset for every 'spread' ticks and above the value it last saw. This distance is called the half-spread
