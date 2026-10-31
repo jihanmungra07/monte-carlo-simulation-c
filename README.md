@@ -16,9 +16,9 @@ In the default case, the program runs 2,000 sessions with 1,000 rounds each, whe
 At the end of each session, profit is the cash plus the value of the market maker's remaining inventory at the final true price.
 For each half-spread from 1 to 7 ticks, the simulation runs for the desired number of sessions and averages the profit. Every half-spread is tested on the same random scenarios, defined by `srand(s + 1)`, where `s` is the session number, so the comparison is fair.
 # Purpose
-To find which half-spread makes the market maker the highest average profit.
+To find which half-spread gives the market maker the highest average profit.
 # Result
-The image below shows the result of the default case for my compiler.
+The image below shows the result of the default case.
 
 <img width="392" height="268" alt="image" src="https://github.com/user-attachments/assets/49e009b1-2788-4674-8884-7d5c07f81a2e" />
 
