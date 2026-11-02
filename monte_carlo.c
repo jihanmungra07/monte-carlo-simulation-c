@@ -34,14 +34,14 @@ int main() {
 
             for (int r = 0; r < rounds; r++) {
                 int jump = rand() % 7 - 3;
-                bool normal_arrives = rand() % 10 < 5;
+                bool regular_arrives = rand() % 10 < 5;
                 int tolerance = rand() % 7;
-                bool normal_buys = rand() % 2;
+                bool regular_buys = rand() % 2;
                 bool informed_arrives = rand() % 10 < 1;
                 value += jump;
 
-                if (normal_arrives && tolerance >= spread) {
-                    if (normal_buys) {
+                if (regular_arrives && tolerance >= spread) {
+                    if (regular_buys) {
                         cash += quote + spread;
                         inventory--;
                     } else {
@@ -58,10 +58,11 @@ int main() {
                         inventory++;
                     }
                 }
+            
             quote = value;
         }
          total += cash + inventory * value;
-     } 
+     }
     printf("%d %0.1f\n", spread, total / sessions);
     }
 
