@@ -20,13 +20,12 @@ To find which half-spread gives the market maker the highest average profit.
 # Result
 The image below shows the result of the default case.
 
-<img width="390" height="274" alt="Terminal output of the default run: average profit for half-spreads 1 to 7" src="https://github.com/user-attachments/assets/bf533f09-23a6-4d3e-ac01-2a86edc29ec3" />
-
+<img width="540" height="278" alt="image" alt="Terminal output of the default run: average profit for half-spreads 1 to 7" src="https://github.com/user-attachments/assets/b39c473d-bd35-4430-aa5f-f69d008d822f" />
 
 Average profit is highest at half-spreads of 3 and 4 ticks. At smaller spreads (1 and 2 ticks), informed traders can trade against the market maker’s out-of-date quotes, which reduces its profit. At larger spreads, fewer regular traders accept the spread, and at 7 ticks none do, so the average profit is 0.
 # Compiling
 ```
-gcc -Wall -Wextra monte_carlo.c -o monte
+gcc -Wall -Wextra monte_carlo.c -lm -o monte
 ```
 # Running
 ```
